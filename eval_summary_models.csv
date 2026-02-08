@@ -1,0 +1,9 @@
+Model_Name,content_filter,invalid_or_missing_rubric,refusal,rubric_generation_failed,valid,total,valid_ratio
+deepseek-v3.2,16,13,2,3,3744,3778,0.991
+claude-4.5,31,10,0,2,3735,3778,0.9886
+qwen-plus,20,21,1,5,3731,3778,0.9876
+gpt-5,23,29,2,4,3720,3778,0.9846
+doubao-seed1.6,58,24,2,4,3690,3778,0.9767
+kimi-k2,55,18,34,3,3668,3778,0.9709
+grok-4.1,91,10,6,5,3666,3778,0.9704
+gemini-3,40,137,5,4,3592,3778,0.9508
