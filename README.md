@@ -1,40 +1,136 @@
-中华民族共同体意识 AI 模型幻觉测评数据库 (CCHB)
-Common Community Hallucination Benchmark (CCHB)
+# “铸牢中华民族共同体意识”AI模型幻觉测评数据库
 
-本数据库是专门针对大语言模型（LLM）在“铸牢中华民族共同体意识”领域表现的深度测评体系。通过构建高精度的评估数据集，旨在量化模型在处理中华民族历史、理论及政策维度的知识准确性与逻辑合理性，有效识别并缓解相关领域的“幻觉”现象。
+**AI Hallucination Benchmark Dataset for “Forging a Strong Sense of Community for the Chinese Nation”**
 
-📊 核心数据概览
-覆盖主题： 55 个细分主题（涵盖“华夏初立”至“中华民族共同体建设新成就”的全历史与理论跨度）。
+---
 
-维度涵盖： 华夏起源、政治一统、经济交融、文化共生、民族治理、革命历程及当代建设理论。
+## 中文简介
 
-数据规模： 共计 30,224 条评估记录，数据有效率达 97.76%。
+本仓库发布一套面向“铸牢中华民族共同体意识”主题的**大模型幻觉与能力测评数据库**，用于评估模型在相关历史叙事、理论阐释与教学表达中的**事实准确性与认知质量**，并支持跨模型、跨温度、跨语种的对比分析。
 
-测试机型： 包含 GPT-5, Claude-4.5, Gemini-3, Grok-4.1, DeepSeek-v3.2, Qwen-plus, Doubao-seed1.6, Kimi-K2 等 8 款 2026 年主流大模型。
+### 数据覆盖与规模
 
-🧠 测评体系
-SOLO 分类评价体系： 基于 5 个认知层级（从单点结构到抽象扩展）深度剖析模型理解力。
+* **55 个主题**：从「华夏初立」到「中华民族共同体建设的新成就」，涵盖
 
-四维评估矩阵： 1. 知识准确性 (Factuality) 2. 思维深度 (Reasoning Depth) 3. 教学清晰度 (Instructional Clarity) 4. 完整性 (Completeness)
+  * 中华民族起源与华夏共同体形成
+  * 政治一统与国家治理
+  * 经济交融与社会整合
+  * 文化交融与认同建构
+  * 民族治理与制度演进
+  * 革命历程与现代国家塑造
+  * 中华民族共同体建设的理论与实践进展
+* **30,224 条评估记录**（有效率 **97.76%**）
 
-技术特性： 支持双温度系数测试（Low/High Temperature）及多语种环境适配。
+### 评测模型（8款）
 
-🇺🇸 English Version
-AI Model Hallucination Evaluation Database for the Sense of Community for the Chinese Nation (CCHB)
-The Common Community Hallucination Benchmark (CCHB) is a specialized evaluation framework designed to assess the performance of Large Language Models (LLMs) in the context of "Forging the Sense of Community for the Chinese Nation."
+* DeepSeek-v3.2（DeepSeek）
+* Claude-4.5（Anthropic）
+* Qwen-plus（Alibaba Cloud）
+* GPT-5（OpenAI）
+* Doubao-seed1.6（ByteDance）
+* Kimi-K2（Moonshot AI）
+* Grok-4.1（xAI）
+* Gemini-3（Google）
 
-📊 Dataset Key Metrics
-Thematic Scope: 55 specific topics spanning from the "Dawn of Cathay" to the "Contemporary Achievements of the Chinese National Community."
+### 评价体系与指标
 
-Dimensions: Covers historical origins, political unification, economic integration, cultural fusion, ethnic governance, revolutionary history, and theoretical construction.
+* **自研 SOLO 分类评价体系**：5个认知层级（用于刻画理解深度与知识组织能力）
+* **四维评估矩阵**：
 
-Data Scale: 30,224 evaluation records with a 97.76% validity rate.
+  1. 知识准确性（Knowledge Accuracy）
+  2. 思维深度（Reasoning Depth）
+  3. 教学清晰度（Instructional Clarity）
+  4. 完整性（Completeness）
+* **支持双温度测试**与**多语种**（便于检验采样策略与语言迁移对幻觉的影响）
 
-Models Tested: Benchmarked against 8 mainstream LLMs (GPT-5, Claude-4.5, Gemini-3, Grok-4.1, DeepSeek-v3.2, Qwen-plus, Doubao-seed1.6, and Kimi-K2).
+### 仓库内容（示例）
 
-🧠 Evaluation Framework
-SOLO Taxonomy: Utilizes 5 cognitive levels to analyze the depth of model understanding.
+* `eval_summary_files.csv`：按文件/主题等维度汇总的统计结果
+* `eval_summary_models.csv`：按模型维度汇总的统计结果
+* `hallucination_audit_demo.sqlite`：可直接查询的示例数据库（便于复现、筛选与审计）
 
-4D Evaluation Matrix: 1. Factuality 2. Reasoning Depth 3. Instructional Clarity 4. Completeness
+---
 
-Technical Features: Supports dual-temperature testing and multi-language environments to ensure robust hallucination detection.
+## English Overview
+
+This repository releases an **AI hallucination & capability benchmark dataset** centered on the theme **“Forging a Strong Sense of Community for the Chinese Nation.”**
+It is designed to evaluate how LLMs perform in **fact-grounded historical/theoretical narratives** and **instructional explanations**, enabling comparisons across **models, temperatures, and languages**.
+
+### Coverage & Scale
+
+* **55 topics**, ranging from *“Early Formation of Huaxia”* to *“New Achievements in Building the Community for the Chinese Nation”*, covering:
+
+  * origins and formation of the Huaxia community
+  * political unification and governance
+  * economic integration
+  * cultural integration and identity building
+  * ethnic governance and institutional evolution
+  * revolutionary history and modern state formation
+  * recent theoretical and practical advances in community building
+* **30,224 evaluation records** (**97.76%** valid rate)
+
+### Evaluated Models (8)
+
+DeepSeek-v3.2, Claude-4.5, Qwen-plus, GPT-5, Doubao-seed1.6, Kimi-K2, Grok-4.1, Gemini-3.
+
+### Evaluation Framework
+
+* **SOLO-based cognitive grading (5 levels)** to capture learning/understanding depth
+* **4D evaluation matrix**:
+
+  1. Knowledge Accuracy
+  2. Reasoning Depth
+  3. Instructional Clarity
+  4. Completeness
+* Supports **dual-temperature settings** and **multilingual evaluation**
+
+### Files
+
+* `eval_summary_files.csv` – aggregated stats by file/topic
+* `eval_summary_models.csv` – aggregated stats by model
+* `hallucination_audit_demo.sqlite` – demo SQLite database for querying/auditing
+
+---
+
+## Quick Start / 快速开始
+
+### Python（读取 CSV）
+
+```bash
+pip install pandas
+```
+
+```python
+import pandas as pd
+
+files = pd.read_csv("eval_summary_files.csv")
+models = pd.read_csv("eval_summary_models.csv")
+
+print(files.head())
+print(models.head())
+```
+
+### SQLite（查询示例）
+
+```bash
+sqlite3 hallucination_audit_demo.sqlite
+```
+
+```sql
+.tables
+-- Example:
+-- SELECT * FROM some_table LIMIT 20;
+```
+
+> 说明：SQLite 的表结构与字段含义可通过 `.schema` 查看，并结合两份 summary CSV 快速定位关键维度与指标。
+
+---
+
+## Suggested Citation / 引用建议
+
+如果你在论文、报告或产品中使用本数据集，建议在参考文献中注明：
+
+* 数据集名称：**“铸牢中华民族共同体意识”AI模型幻觉测评数据库**
+* 仓库地址：本 GitHub Repo
+* 版本号/提交号：建议填写你使用的 commit hash（便于可复现）
+
